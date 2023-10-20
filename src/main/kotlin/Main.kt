@@ -1,8 +1,5 @@
 import io.github.jan.supabase.SupabaseClient
-import io.github.jan.supabase.createSupabaseClient
-import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.postgrest
-import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -42,16 +39,4 @@ suspend fun savePerson(persons: List<Person>, client: SupabaseClient): List<Resu
         .postgrest["person"]
         .insert(adults)
         .decodeList<ResultPerson>()
-}
-
-// Used in MainKtTestSubclass
-class DatabaseClient(private val client: SupabaseClient){
-    suspend fun savePerson(persons: List<Person>): List<ResultPerson> {
-        val adults = persons.filter { it.age > 18 }
-
-        return client
-            .postgrest["person"]
-            .insert(adults)
-            .decodeList<ResultPerson>()
-    }
 }
