@@ -25,18 +25,7 @@ data class ResultPerson (
 }
 
 fun main() {
-    println("Hello World!")
-    // Application goes here
-    val supabaseClient = createSupabaseClient(
-        supabaseUrl = "",
-        supabaseKey = ""
-    ) {
-        install(Postgrest)
-    }
-
-    runBlocking {
-        savePerson(listOf(Person("Jan", 30), Person("Jane", 42)), supabaseClient)
-    }
+    // Your application logic
 }
 
 suspend fun getPerson(client: SupabaseClient): List<ResultPerson> {

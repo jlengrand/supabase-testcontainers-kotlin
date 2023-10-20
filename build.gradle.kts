@@ -33,6 +33,8 @@ dependencies {
 
     testImplementation("io.mockk:mockk:1.13.7")
     testImplementation("io.ktor:ktor-client-mock:2.3.5")
+
+    testImplementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
 }
 
 tasks.test {
